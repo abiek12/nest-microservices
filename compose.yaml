@@ -25,7 +25,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: nest123
-      POSTGRES_DB: logging_service
+      POSTGRES_DB: logging_service_db
     volumes:
       - postgres-data:/var/lib/postgresql/data
 
@@ -38,7 +38,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: nest123
-      POSTGRES_DB: ridder_service
+      POSTGRES_DB: ridder_service_db
     volumes:
       - postgres-data:/var/lib/postgresql/data
   redis:
