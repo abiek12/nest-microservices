@@ -16,29 +16,81 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: 192.168.29.98:2181
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://192.168.29.98:9092
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-  logging_service_db:
+  restaurant_service_db:
     image: postgres
-    container_name: my_logging_postgres
+    container_name: my_restaurant_postgres
     restart: always
     ports:
       - "5433:5432"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: nest123
-      POSTGRES_DB: logging_service_db
+      POSTGRES_DB: restaurant_service_db
     volumes:
       - postgres-data:/var/lib/postgresql/data
 
-  ridder_service_db:
+  order_service_db:
     image: postgres
-    container_name: my_ridder_postgres
+    container_name: my_order_postgres
     restart: always
     ports:
       - "5434:5432"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: nest123
-      POSTGRES_DB: ridder_service_db
+      POSTGRES_DB: order_service_db
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  user_service_db:
+    image: postgres
+    container_name: my_user_postgres
+    restart: always
+    ports:
+      - "5435:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: nest123
+      POSTGRES_DB: user_service_db
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  delivery_service_db:
+    image: postgres
+    container_name: my_delivery_postgres
+    restart: always
+    ports:
+      - "5436:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: nest123
+      POSTGRES_DB: delivery_service_db
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  payment_service_db:
+    image: postgres
+    container_name: my_payment_postgres
+    restart: always
+    ports:
+      - "5437:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: nest123
+      POSTGRES_DB: payment_service_db
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  notification_service_db:
+    image: postgres
+    container_name: my_notification_postgres
+    restart: always
+    ports:
+      - "5438:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: nest123
+      POSTGRES_DB: notification_service_db
     volumes:
       - postgres-data:/var/lib/postgresql/data
   redis:
